@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecmascript6 tutorial</title>
+    <h1>Hello world</h1>
+    <p id="demo"></p>
+    <h3 id="demo1"> </h3>
+    <button id="btn">Click me</button>
+     <h2 id="inventory"></h2>
+     <h3 id="promise"></h3>
+</head>
+
+<body>
+    <script>
+        var name = "Nishant"; // string
+        var people = [] // this is an array 
+        function addMoney() {
+            var moneyInAccount = 5000; // we used to use var keyword to define a variable in Javascript before es6 
+            var moneyInCash = 200;// int
+            var totalMoney = moneyInAccount + moneyInCash;
+            console.log(totalMoney);
+
+        }
+        addMoney();
+        let applePrice = 120;
+        // applePrice whos value is 120 
+
+        {
+            let applePrice = 200;
+            console.log(applePrice);
+            // value here is 200 exists only inside the block 
+        }
+        console.log(applePrice);
+        // const that lets us create constants
+
+        const noOfMoon = 1;
+        // the value can be mutated but not changed 
+        // const value cannot be reassigned 
+        // noOfMoon = 2;
+        console.log(noOfMoon);
+
+        // function totalMemory(ssd, hhd) { // the previous method
+        //     const total = ssd + hhd;
+        //     console.log(total + "GB");
+        // }
+        // totalMemory(512, 500);
+
+        // totalRam = (stick1, stick2) => { // fat arrow function 
+        //     ram = stick1 + stick2;
+        //     console.log(ram + " GB");
+        // };
+        // totalRam(8, 16);
+        // const x = (x, y) => {
+        //     z = x * y;
+        //     console.log(z);
+        // };
+        // x(23, 43);
+        // x(10,20);
+
+        // hello = () => {
+        //     return "hello and welcome to the react session!"
+        // }
+        hello = () => {
+            document.getElementById("demo").innerHTML += this
+        };
+        // a window object that calls the function
+        window.addEventListener('load', hello);
+
+        // a button that will call this function
+        document.getElementById("btn").addEventListener("click", hello);
+        // hello1 = (name) => "hello and welcome to the react session! " + name;
+
+        document.getElementById("demo").innerHTML = hello("Nishant");
+
+        // document.getElementById("demo1").innerHTML = hello1("Akshay"); 
+
+
+        class Inventory{
+            constructor(ItemName, ItemQuantity, ItemPrice) {
+                this.Name = ItemName;
+                this.Quantity = ItemQuantity;
+                this.Price = ItemPrice;
+            }
+        }
+        const myInventory = new Inventory("MAngos",100,120.99);
+        document.getElementById("inventory").innerHTML = myInventory.Name + " Is available for " + myInventory.Price + " and we have only " + myInventory.Quantity + " Apples available ";
+
+
+        const vehicles = ["City", "Swift", "Jeep"];
+        // const sedan =vehicles[0]; // the old way 
+        // const Hatch = vehicles[1];
+        // const Suv = vehicles[2];
+        const [sedan,, suv] = vehicles; // with destucturing
+        console.log(sedan);
+
+        const LaptopSpec = {
+            brand: "Lenovo",
+            model: "ersa323",
+            type: "Gaming Laptop",
+            year: 2021
+            
+        }
+
+        
+
+        function myLaptop ({brand, year, model, type}) {
+            const message = "My " + brand + " " + model + " is a  " + type + " of year " + year ; 
+            console.log(message);
+        }
+        myLaptop(LaptopSpec);
+
+
+        const fruits = ["apples", "mangos", "Pineapple"] ; 
+        console.log(fruits);
+        const vegitables = ["Potato", "Bringal", "ladyfinger"]
+        console.log(vegitables);
+        const totalProduct = [...fruits, ...vegitables];
+        console.log(totalProduct);
+
+        const updatedLaptopSpecs = {
+            ram : 16,
+            processor: "i5",
+            storage: 512 
+
+        }
+
+        const FinalLaptopSpecs = {...LaptopSpec , ...updatedLaptopSpecs}
+        console.log(FinalLaptopSpecs);
+
+        function Display(x) {
+            document.getElementById("promise").innerHTML = x ;
+        }
+
+        const myPromise = new Promise(function (resolve, reject) {
+            let x = 1
+
+            if(x == 0) {
+                resolve("hello my camera has been delivered")
+            } else {
+                reject("Camera has not been delivered");
+            }
+            // resolve("hello my camera has been delivered"); // when sucessful
+        })
+        myPromise.
+        myPromise.then(
+            function(value) {Display(value);},
+            function(error) {Display(error);}
+            
+        )
+     
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
