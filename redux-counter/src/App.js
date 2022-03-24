@@ -1,23 +1,17 @@
 import './App.css';
-import { Increment, Decrement, Reset } from "./actions"
-import { useSelector, useDispatch } from 'react-redux';
-import Header from './components/header';
-import { BrowserRouter,Routes, Route } from 'react-router-dom';
-
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import Home from './components/home';
+import DisplayCart from './components/displayCart';
 function App() {
-  const counter = useSelector(state => state.counter);
-  const dispatch = useDispatch();
+
 
   return (
-    <div className="App">
-     <Header/>
-
-      <h1>Counter : {counter}</h1>
-      <button onClick={() => dispatch(Increment())}> add 1</button>
-      <button onClick={() => dispatch(Decrement())}>sub 1</button>
-      <button onClick={() => dispatch(Reset())}>Reset</button>
-
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/cart" element={<DisplayCart />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
