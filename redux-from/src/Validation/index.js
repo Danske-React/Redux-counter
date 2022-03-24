@@ -4,6 +4,10 @@ input ? undefined : `Input is required`;
 export const correctInput = input => 
 input !=='nishant' ? 'incorrect username' : undefined;
 
+export const matchInput = (input, allInputs) => 
+    input === allInputs.password ? undefined : 'password do not match'
+
+
 
 
 
