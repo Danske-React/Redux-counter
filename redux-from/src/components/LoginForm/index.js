@@ -9,12 +9,7 @@ class LoginForm extends React.Component {
             <form onSubmit={handleSubmit}>
                 <Field name="username" component={myInput} type="text" placeholder="Username" validate = {[requiredInput, correctInput]} />
                 <Field name="password" component={myInput} type="password" placeholder="Password" validate={[requiredInput]} />
-                {/* {
-                    meta.error && meta.touched &&
-                    <div>
-                        {meta.error}
-                    </div>
-                } */}
+              
                 <button type="submit" lable="Submit" >Submit button </button>
             </form>
         )
@@ -23,8 +18,6 @@ class LoginForm extends React.Component {
 // Field props -> name: acts as identifier , component -> it is a prop that refers to the html element of that field.
 LoginForm = reduxForm({
     form: 'login',
-    
-    
 })(LoginForm); // this syntax you have to remember 
 
 export default LoginForm
