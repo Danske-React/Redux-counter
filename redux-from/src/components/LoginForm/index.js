@@ -1,13 +1,13 @@
 import React from "react";
 import { Field, reduxForm } from "redux-form";
-
+import { myInput } from "../Field";
 class LoginForm extends React.Component {
     render() {
         const { handleSubmit } = this.props;
         return (
             <form onSubmit={handleSubmit}>
-                <Field name="username" component="input" type="text" placeholder="Username" />
-                <Field name="password" component="input" type="password" placeholder="Password" />
+                <Field name="username" component={myInput} type="text" placeholder="Username" />
+                <Field name="password" component={myInput} type="password" placeholder="Password" />
                 <button type="submit" lable="Submit" >Submit button </button>
             </form>
         )
