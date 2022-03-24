@@ -8,3 +8,6 @@ export const Decrememt = () => {
         type: 'DECREMENT',
     };
 };
+
+// git clone <the git repop link>
+// npm install (inside the project folder )
