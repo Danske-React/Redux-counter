@@ -1,17 +1,23 @@
-
 import './App.css';
 import React from 'react';
 import LoginForm from './components/LoginForm';
+import { SubmissionError } from 'redux-form'
 class App extends React.Component {
- 
-  submit = values => {
-    console.log(values);
-    window.alert(JSON.stringify(values))
+  submit = inputs => {
+    if (['nishant', 'Akshay'].includes(inputs.username)) {
+      throw new SubmissionError({
+        username: 'Username is already taken',
+      });
+    }
+    else {
+      console.log(inputs);
+      window.alert(JSON.stringify(inputs))
+    }
   }
   getInitialValues() {
     return {
-      username:'nishant',
-      password:'hello'
+      username: 'nishant',
+      password: 'hello'
     };
   }
   render() {

@@ -2,6 +2,7 @@ import React from "react";
 import { Field, reduxForm } from "redux-form";
 import { myInput } from "../Field";
 import {requiredInput, correctInput , matchInput}  from "../../Validation"
+
 class LoginForm extends React.Component {
     render() {
         const { handleSubmit } = this.props;
