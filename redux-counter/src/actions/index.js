@@ -3,7 +3,7 @@ export const Increment = () => {
         type: 'INCREMENT',
     };
 };
-export const Decrememt = () => {
+export const Decrement = () => {
     return {
         type: 'DECREMENT',
     };
