@@ -8,6 +8,11 @@ export const Decrement = () => {
         type: 'DECREMENT',
     };
 };
+export const Reset = () => {
+    return {
+        type: 'RESET',
+    };
+};
 
 // git clone <the git repop link>
 // npm install (inside the project folder )
