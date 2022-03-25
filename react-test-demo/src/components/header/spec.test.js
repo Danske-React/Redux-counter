@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "./index";
 import { shallow } from 'enzyme';
+import { findByTestAttr } from "../../../Utils";
 
 const setUp = (props = {}) => {
     const component = shallow(<Header {...props} />)
     return component;
 }
 describe('Header Component', () => {
-
     let component;
     beforeEach(() => { // this basically runs before every test 
         component = setUp(); 
@@ -15,17 +15,16 @@ describe('Header Component', () => {
     it('It should render without errors', () => {
 
         // console.log(component.debug);
-        const wrapper = component.find(".headerComponent");
+        const wrapper = findByTestAttr(component,'headerComponent')
+        //component.find(`[data-test='headerComponent']`);
         expect(wrapper.length).toBe(1);
     });
     it('should render the logo', () => {
-
         // console.log(component.debug);
-        const logo = component.find(".logoIMG");
+        const logo = findByTestAttr(component,'logoIMG')
+       // component.find(`[data-test="logoIMG"]`);
         expect(logo.length).toBe(1);
     })
-
-
 })
 
 
