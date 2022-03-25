@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Headline from "./index";
-import { findByTestAttr } from "../../../Utils";
-import checkPropTypes from "check-prop-types";
+import { findByTestAttr , checkProps} from "../../../Utils";
+
 
 
 const setUp = (props = {}) => {
@@ -24,7 +24,7 @@ describe('Headline Component', () => {
                     onlineStatus: false
                 }]
             };
-            const propsErr = checkPropTypes(Headline.propTypes, expectedProps, "props", Headline.name);
+            const propsErr = checkProps(Headline, expectedProps);
             expect(propsErr).toBeUndefined()
 
         })
